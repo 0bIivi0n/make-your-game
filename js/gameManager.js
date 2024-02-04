@@ -1,27 +1,21 @@
-var pauseButton = document.getElementById("toggle");
-var startMenu = document.getElementById("start-menu");
-var startButton = document.getElementById("start-button");
 var timer;
 var enemyAttackID;
 var enemyAttackInterval = 5000;
-var min = 0;
-var sec = 0;
 
+document.getElementById("next-level-button").disabled = true;
 createEnemyContainer();
 spawnEnemies();
 
 function startGame() {
-    var restartButton = document.getElementById("restart");
-    var nextLevelButton = document.getElementById("next-level-button");
 
     if (playerMissileFired) {
-        var playerMissile = document.getElementById("player-missile");
+        let playerMissile = document.getElementById("player-missile");
         playerMissile.remove();
         playerMissileFired = false;
     }
 
     if (enemyMissileFired) {
-        var enemyMissile = document.getElementById("enemy-missile");
+        let enemyMissile = document.getElementById("enemy-missile");
         enemyMissile.remove();
         enemyMissileFired = false;
     }
@@ -41,26 +35,25 @@ function startGame() {
     console.log("Enemy speed: " + enemySpeed + ", Enemy attack Interval: " + enemyAttackInterval);
 }
 
-function startPage() {
+function printStartPage() {
 
-    const startPage = document.getElementById("start-menu");
     startPage.style.opacity = "1";
     startButton.disabled = false;
     startButton.style.opacity = "1";
+    tryAgainButton.disabled = true;
+    nextLevelButton.disabled = true;
 
 }
 
 function gameOver() {
-
-    const gameOverPage = document.getElementById("game-over");
+    
     gameOverPage.style.opacity = "1";
+    tryAgainButton.disabled = false;
     
 }
 
 function congratulations() {
-    const gratsPage = document.getElementById("grats");
-    var nextLevelButton = document.getElementById("next-level-button");
-   
+    
     gratsPage.style.opacity = "1";
     nextLevelButton.disabled = false;
 }
@@ -85,7 +78,7 @@ function toggleAnimation() {
 }
 
 function closeGratsPage() {
-    document.getElementById("grats").style.opacity = "0";
+    gratsPage.style.opacity = "0";
 }
 
 function createEnemyContainer() {
@@ -95,13 +88,16 @@ function createEnemyContainer() {
 }
 
 function startTimer() {
+    var minutes = 0;
+    var seconds = 0;
+    
     timer = setInterval(() => {
-        sec++;
-        if(sec > 59) {
-            min++;
-            sec = 0;
+        seconds++;
+        if(seconds > 59) {
+            minutes++;
+            seconds = 0;
         }
-        document.getElementById("timer").innerHTML="<strong>Timer: " + min +"m, " + sec + "s </strong>";
+        document.getElementById("timer").innerHTML="<strong>Timer: " + minutes +"m, " + seconds + "s </strong>";
     }, 1000)
 }
 
@@ -121,7 +117,7 @@ function setNextLevel() {
     enemyAttackInterval -= 500;
     enemySpeed += 0.1;
     closeGratsPage(); 
-    startPage();
+    printStartPage();
 }
 
 

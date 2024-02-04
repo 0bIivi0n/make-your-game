@@ -1,19 +1,9 @@
-var rightBorder = document.getElementById("border-right");
-var leftBorder = document.getElementById("border-left");
-var topBorder = document.getElementById("border-top");
-var bottomBorder = document.getElementById("border-bottom");
-
 var nb = 20;
 var marginLeft = 0;
 var marginTop = 0;
 var enemyMissileFired = false;
 var missileXPos;
-
-let debut, tempsPrecedent;
-let fini = false;
-
-var IDanimation = 0, NBanimation = 0, nbFPS = 10;
-
+var IDanimation = 0;
 var enemySpeed = 0.5;
 
 function spawnEnemies(add) {
@@ -24,9 +14,7 @@ function spawnEnemies(add) {
 
     var enemyX = 75;
     var enemyY = 10;
-
     var row = (nb/10);
-
     var enemyContainer = document.getElementById("enemy-container");
 
     for (let i = 0; i < row; i++ ) {
@@ -71,6 +59,9 @@ function animate() {
     var enemies = document.querySelectorAll(".enemy");
     var invaded = false;
     var enemyContainer = document.getElementById("enemy-container");
+    var bottomBorder = document.getElementById("border-bottom");
+
+    let NBanimation = 0, nbFPS = 10;
 
 
     NBanimation++;
@@ -122,7 +113,7 @@ function animate() {
         return;
     }
 
-    if(invaded || player.health === 0) {
+    if(invaded || player.health <= 0) {
         gameOver();
         cancelAnimationFrame(IDanimation);
         clearInterval(timer);
@@ -137,7 +128,9 @@ function animate() {
 }
 
 function moveEnemy() {
-    
+
+    let rightBorder = document.getElementById("border-right");
+    let leftBorder = document.getElementById("border-left");
     const enemy = document.getElementById("enemy-container");
     var enemyLimits = enemy.getBoundingClientRect(enemy);
     var leftBorderLimits = leftBorder.getBoundingClientRect(leftBorder);
@@ -160,6 +153,7 @@ function moveEnemyMissile() {
     var player = document.getElementById("player");
     var missilePos = Number((getComputedStyle(enemyMissile).top).split("px")[0]);
     var missileXPos = Number((getComputedStyle(enemyMissile).left).split("px")[0]);
+    var bottomBorder = document.getElementById("border-bottom");
     var bottomBorderLimits = bottomBorder.getBoundingClientRect(bottomBorder);
     var enemyMissileLimits = enemyMissile.getBoundingClientRect(enemyMissile);
 

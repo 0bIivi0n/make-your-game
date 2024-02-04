@@ -1,10 +1,7 @@
-const canvas = document.getElementById("canvas");
 var player = document.getElementById("player");
 var playerMissileFired = false;
-
 const speed = 10;
 var score = 0;
-
 player.health = 3;
 
 const maxX = (canvas.offsetWidth - player.offsetWidth) - 25;
@@ -14,11 +11,11 @@ const maxY = (canvas.offsetHeight - player.offsetHeight)- 10;
 let playerX = maxX / 2;
 let playerY = maxY;
 
-// listener for key press
+// Listener for key press
 document.addEventListener("keydown", (e) => {
     if(IDanimation != 0) {
 
-         // move player
+         // keys pressed
         switch (e.key) {
             case "ArrowLeft": 
                 playerX = Math.max(25, playerX - speed);
@@ -42,10 +39,8 @@ document.addEventListener("keydown", (e) => {
 });
 
 function makePlayerShoot() {
-    var playerZone = document.getElementById("player-zone");
     var playerPos = Number((getComputedStyle(player).left).split('px')[0]);
 
-    //console.log("player shoot");
     var playerMissile = document.createElement("div");
     playerMissile.id = "player-missile";
 
