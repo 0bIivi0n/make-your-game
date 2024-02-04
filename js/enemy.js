@@ -78,7 +78,7 @@ function moveEnemy() {
 }
 
 function moveEnemyMissile() {
-    let speed = 10;
+    let enemyMissileSpeed = 10;
     var enemyMissile = document.getElementById("enemy-missile");
     var player = document.getElementById("player");
     var missilePos = Number((getComputedStyle(enemyMissile).top).split("px")[0]);
@@ -87,7 +87,7 @@ function moveEnemyMissile() {
     var bottomBorderLimits = bottomBorder.getBoundingClientRect(bottomBorder);
     var enemyMissileLimits = enemyMissile.getBoundingClientRect(enemyMissile);
 
-    missilePos += speed;
+    missilePos += enemyMissileSpeed;
     missileXPos -= enemySpeed;
 
     enemyMissile.style.top = missilePos + "px";

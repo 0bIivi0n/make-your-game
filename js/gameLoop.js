@@ -1,11 +1,10 @@
+var NBanimation = 0, nbFPS = 10;
+
 function animate() {
 
     var enemies = document.querySelectorAll(".enemy");
     var invaded = false;
     var enemyContainer = document.getElementById("enemy-container");
-
-    let NBanimation = 0, nbFPS = 10;
-
 
     NBanimation++;
 
@@ -32,6 +31,8 @@ function animate() {
         document.getElementById("fps").innerHTML= "<strong>" + fps + " FPS </strong>" ;
         microtime1=microtime2;
     }
+
+    console.log(fps)
 
     enemies.forEach(enemy => {
         

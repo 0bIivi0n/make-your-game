@@ -4,6 +4,7 @@ var enemyAttackInterval = 5000;
 
 document.getElementById("next-level-button").disabled = true;
 document.getElementById("try-again-button").disabled = true;
+
 createEnemyContainer();
 spawnEnemies();
 
