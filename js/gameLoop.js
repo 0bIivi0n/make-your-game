@@ -32,8 +32,6 @@ function animate() {
         microtime1=microtime2;
     }
 
-    console.log(fps)
-
     enemies.forEach(enemy => {
         
         if(checkCollision(enemy, bottomBorder)) {

@@ -74,13 +74,15 @@ function movePlayer() {
 
 
 function makePlayerShoot() {
-    var playerlimits = player.getBoundingClientRect(player);
+    var playerXPos = Number((getComputedStyle(player).left).split('px')[0]);
 
     var playerMissile = document.createElement("div");
     playerMissile.id = "player-missile";
 
-    let playerPos = playerlimits.left + 15;
-    playerMissile.style.left = playerPos + "px";
+    playerXPos += 25;
+    missilePos = playerXPos;
+    playerMissile.style.left = missilePos + "px";
+    playerMissile.style.transform = player.style.transform;
 
     playerZone.appendChild(playerMissile);
     playerMissileFired = true;
