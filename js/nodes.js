@@ -9,3 +9,9 @@ const tryAgainButton = document.getElementById("try-again-button");
 const gameOverPage = document.getElementById("game-over");
 const gratsPage = document.getElementById("grats");
 const playerZone = document.getElementById("player-zone");
+const bottomBorder = document.getElementById("border-bottom");
+const leftBorder = document.getElementById("border-left");
+const rightBorder = document.getElementById("border-right");
+const leftBorderLimits = leftBorder.getBoundingClientRect(leftBorder);
+const rightBorderLimits = rightBorder.getBoundingClientRect(rightBorder);
+

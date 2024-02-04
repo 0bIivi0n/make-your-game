@@ -3,6 +3,7 @@ var enemyAttackID;
 var enemyAttackInterval = 5000;
 
 document.getElementById("next-level-button").disabled = true;
+document.getElementById("try-again-button").disabled = true;
 createEnemyContainer();
 spawnEnemies();
 
@@ -10,14 +11,14 @@ function startGame() {
 
     if (playerMissileFired) {
         let playerMissile = document.getElementById("player-missile");
-        playerMissile.remove();
         playerMissileFired = false;
+        playerMissile.remove();
     }
 
     if (enemyMissileFired) {
         let enemyMissile = document.getElementById("enemy-missile");
-        enemyMissile.remove();
         enemyMissileFired = false;
+        enemyMissile.remove();
     }
 
     startTimer();
