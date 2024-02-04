@@ -1,6 +1,6 @@
 var player = document.getElementById("player");
 var playerMissileFired = false;
-const speed = 10;
+const speed = 7;
 var score = 0;
 player.health = 3;
 var rightKeyDown = false;
