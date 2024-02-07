@@ -1,6 +1,7 @@
 var timer;
 var enemyAttackID;
 var enemyAttackInterval = 5000;
+var isPaused = false;
 
 document.getElementById("next-level-button").disabled = true;
 document.getElementById("try-again-button").disabled = true;
@@ -63,16 +64,15 @@ function congratulations() {
 
 
 function toggleAnimation() {
-    //console.log(IDanimation)
+    
     startMenu.style.opacity = "1";
-    if (IDanimation==0) { // Animation stoppée : on la relance
-        animate();
+    if (isPaused === true) { // Animation stoppée : on la relance
+        isPaused = false;
         startMenu.style.opacity = "0";
         document.getElementById("toggle").innerHTML="Pause";
         startTimer();
     } else {  // Arrêt de l'animation
-        cancelAnimationFrame(IDanimation);
-        IDanimation=0;
+        isPaused = true;
         document.getElementById("toggle").innerHTML="Resume";
         clearInterval(timer);
         clearInterval(enemyAttackInterval);
@@ -120,6 +120,10 @@ function setNextLevel() {
     enemySpeed += 0.1;
     closeGratsPage(); 
     printStartPage();
+}
+
+function PauseGame() {
+    isPaused = true;
 }
 
 

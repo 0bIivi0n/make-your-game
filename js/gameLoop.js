@@ -8,18 +8,19 @@ function animate() {
 
     NBanimation++;
 
-    moveEnemy();
-    movePlayer();
-     
-     
-     
-    if (playerMissileFired) {
-        movePlayerMissile();
-    }
+    if(isPaused === false) {
+        moveEnemy();
+        movePlayer();
 
-    if (enemyMissileFired) {
-        moveEnemyMissile();
+        if (playerMissileFired) {
+            movePlayerMissile();
+        }
+    
+        if (enemyMissileFired) {
+            moveEnemyMissile();
+        }
     }
+    
      
     // Toutes les nbFPS animations, maj du contenu div#fps
     if (NBanimation % nbFPS == 0) {
