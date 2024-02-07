@@ -3,6 +3,9 @@ var enemyAttackID;
 var enemyAttackInterval = 5000;
 var isPaused = false;
 
+var minutes = 0;
+var seconds = 0;
+
 document.getElementById("next-level-button").disabled = true;
 document.getElementById("try-again-button").disabled = true;
 
@@ -10,6 +13,9 @@ createEnemyContainer();
 spawnEnemies();
 
 function startGame() {
+
+    minutes = 0;
+    seconds = 0;
 
     if (playerMissileFired) {
         let playerMissile = document.getElementById("player-missile");
@@ -96,8 +102,6 @@ function createEnemyContainer() {
 }
 
 function startTimer() {
-    var minutes = 0;
-    var seconds = 0;
     
     timer = setInterval(() => {
         seconds++;
