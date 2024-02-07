@@ -45,7 +45,12 @@ function printStartPage() {
     startButton.style.opacity = "1";
     tryAgainButton.disabled = true;
     nextLevelButton.disabled = true;
+    pauseMenu.style.opacity = "0";
 
+}
+
+function printPauseMenu() {
+    pauseMenu.style.opacity = "1";
 }
 
 function gameOver() {
@@ -69,6 +74,7 @@ function toggleAnimation() {
     if (isPaused === true) { // Animation stoppée : on la relance
         isPaused = false;
         startMenu.style.opacity = "0";
+        pauseMenu.style.opacity = "0";
         document.getElementById("toggle").innerHTML="Pause";
         startTimer();
     } else {  // Arrêt de l'animation

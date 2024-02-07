@@ -20,18 +20,23 @@ document.addEventListener("keydown", (e) => {
         // keys pressed
         switch (e.key) {
             case "ArrowLeft":
-                //playerX = Math.max(25, playerX - speed);
-                //playerX -= speed;
                 leftKeyDown = true;
                 break;
             case "ArrowRight":
-                //playerX = Math.min(maxX, playerX + speed);
-                //playerX += speed;
                 rightKeyDown = true;
                 break;
             case " ":
                 if (!playerMissileFired) {
                     makePlayerShoot();
+                }
+                break;
+            case "p":
+                toggleAnimation();
+                printPauseMenu();
+                break;
+            case "r":
+                if (isPaused) {
+                    location.reload();
                 }
                 break;
         }

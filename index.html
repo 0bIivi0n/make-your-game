@@ -27,7 +27,10 @@
             <!-- Start Menu Overlay-->
             <div id="start-menu">
                 <h1 id="title">Space Intruders</h1>
-                <h2 id="title-desc">PAUSE</h2>
+                <div id="pause-menu">
+                    <h2 id="title-desc">PAUSE</h2>
+                    <p style="color:white"><strong>(p) Resume, (r) Restart</strong></p>
+                </div>
                 <button id="start-button" onclick="startGame()">Start</button>
             </div>
             <!--Game Over Overlay-->
@@ -43,7 +46,7 @@
         </div>
         <div id="game-info">
             <span id="score"><strong>Score: 0</strong></span><span id="health" class="info"><strong>Lives:</strong></span><span id="timer" class="info"><strong>Timer:</strong></span><span id="fps" class="info"><strong>FPS</strong></span>
-            <button class="button" onclick="toggleAnimation()" id="toggle">Pause</button>
+            <button class="button" onclick="toggleAnimation(), printPauseMenu()" id="toggle">Pause</button>
             <button class="button" onclick="window.location.reload()" id="restart">Restart</button>
         </div>
         

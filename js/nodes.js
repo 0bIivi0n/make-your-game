@@ -14,4 +14,5 @@ const leftBorder = document.getElementById("border-left");
 const rightBorder = document.getElementById("border-right");
 const leftBorderLimits = leftBorder.getBoundingClientRect(leftBorder);
 const rightBorderLimits = rightBorder.getBoundingClientRect(rightBorder);
+const pauseMenu = document.getElementById("pause-menu");
 
