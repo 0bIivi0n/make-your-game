@@ -8,3 +8,10 @@ function checkCollision(owner, target) {
         return true;
     }
 }
+
+function setLimits() {
+    leftBorderLimits = leftBorder.getBoundingClientRect(leftBorder);
+    rightBorderLimits = rightBorder.getBoundingClientRect(rightBorder);
+}
+
+window.addEventListener("resize", setLimits);

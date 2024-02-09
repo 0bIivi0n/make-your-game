@@ -12,7 +12,6 @@ const playerZone = document.getElementById("player-zone");
 const bottomBorder = document.getElementById("border-bottom");
 const leftBorder = document.getElementById("border-left");
 const rightBorder = document.getElementById("border-right");
-const leftBorderLimits = leftBorder.getBoundingClientRect(leftBorder);
-const rightBorderLimits = rightBorder.getBoundingClientRect(rightBorder);
 const pauseMenu = document.getElementById("pause-menu");
-
+var leftBorderLimits = leftBorder.getBoundingClientRect(leftBorder);
+var rightBorderLimits = rightBorder.getBoundingClientRect(rightBorder);
